@@ -1,0 +1,13 @@
+c:\Users\José\documents\visual studio 2015\Projects\Engine\Template\bin\Debug\Template.exe.config
+c:\Users\José\documents\visual studio 2015\Projects\Engine\Template\bin\Debug\Template.exe
+c:\Users\José\documents\visual studio 2015\Projects\Engine\Template\bin\Debug\Template.pdb
+c:\Users\José\documents\visual studio 2015\Projects\Engine\Template\bin\Debug\Engine.dll
+c:\Users\José\documents\visual studio 2015\Projects\Engine\Template\bin\Debug\Engine.pdb
+c:\Users\José\documents\visual studio 2015\Projects\Engine\Template\obj\Debug\Template.csprojResolveAssemblyReference.cache
+c:\Users\José\documents\visual studio 2015\Projects\Engine\Template\obj\Debug\Template.Properties.Resources.resources
+c:\Users\José\documents\visual studio 2015\Projects\Engine\Template\obj\Debug\Template.csproj.GenerateResource.Cache
+c:\Users\José\documents\visual studio 2015\Projects\Engine\Template\obj\Debug\Template.exe
+c:\Users\José\documents\visual studio 2015\Projects\Engine\Template\obj\Debug\Template.pdb
+C:\Users\José\Documents\Visual Studio 2015\Projects\Engine\Template\bin\Debug\OpenTK.dll
+C:\Users\José\Documents\Visual Studio 2015\Projects\Engine\Template\bin\Debug\OpenTK.pdb
+C:\Users\José\Documents\Visual Studio 2015\Projects\Engine\Template\bin\Debug\OpenTK.xml
