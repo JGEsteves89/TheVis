@@ -14,3 +14,13 @@ C:\Users\José\Documents\Visual Studio 2015\Projects\Engine\Template\bin\Debug\O
 C:\Users\José\Documents\GitHub\TheVis\Template\bin\Debug\Template.exe.config
 C:\Users\José\Documents\GitHub\TheVis\Template\obj\Debug\Template.exe
 C:\Users\José\Documents\GitHub\TheVis\Template\obj\Debug\Template.pdb
+C:\Users\José\Documents\GitHub\TheVis\Template\bin\Debug\Template.exe
+C:\Users\José\Documents\GitHub\TheVis\Template\bin\Debug\Template.pdb
+C:\Users\José\Documents\GitHub\TheVis\Template\bin\Debug\Engine.dll
+C:\Users\José\Documents\GitHub\TheVis\Template\bin\Debug\OpenTK.dll
+C:\Users\José\Documents\GitHub\TheVis\Template\bin\Debug\Engine.pdb
+C:\Users\José\Documents\GitHub\TheVis\Template\bin\Debug\OpenTK.pdb
+C:\Users\José\Documents\GitHub\TheVis\Template\bin\Debug\OpenTK.xml
+C:\Users\José\Documents\GitHub\TheVis\Template\obj\Debug\Template.csprojResolveAssemblyReference.cache
+C:\Users\José\Documents\GitHub\TheVis\Template\obj\Debug\Template.Properties.Resources.resources
+C:\Users\José\Documents\GitHub\TheVis\Template\obj\Debug\Template.csproj.GenerateResource.Cache

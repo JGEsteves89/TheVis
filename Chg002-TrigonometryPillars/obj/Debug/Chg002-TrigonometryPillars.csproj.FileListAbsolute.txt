@@ -1,0 +1,12 @@
+C:\Users\José\Documents\GitHub\TheVis\Chg002-TrigonometryPillars\bin\Debug\Chg002-TrigonometryPillars.exe.config
+C:\Users\José\Documents\GitHub\TheVis\Chg002-TrigonometryPillars\bin\Debug\Chg002-TrigonometryPillars.exe
+C:\Users\José\Documents\GitHub\TheVis\Chg002-TrigonometryPillars\bin\Debug\Chg002-TrigonometryPillars.pdb
+C:\Users\José\Documents\GitHub\TheVis\Chg002-TrigonometryPillars\bin\Debug\Engine.dll
+C:\Users\José\Documents\GitHub\TheVis\Chg002-TrigonometryPillars\bin\Debug\OpenTK.dll
+C:\Users\José\Documents\GitHub\TheVis\Chg002-TrigonometryPillars\bin\Debug\Engine.pdb
+C:\Users\José\Documents\GitHub\TheVis\Chg002-TrigonometryPillars\bin\Debug\OpenTK.pdb
+C:\Users\José\Documents\GitHub\TheVis\Chg002-TrigonometryPillars\bin\Debug\OpenTK.xml
+C:\Users\José\Documents\GitHub\TheVis\Chg002-TrigonometryPillars\obj\Debug\Chg002_TrigonometryPillars.Properties.Resources.resources
+C:\Users\José\Documents\GitHub\TheVis\Chg002-TrigonometryPillars\obj\Debug\Chg002-TrigonometryPillars.csproj.GenerateResource.Cache
+C:\Users\José\Documents\GitHub\TheVis\Chg002-TrigonometryPillars\obj\Debug\Chg002-TrigonometryPillars.exe
+C:\Users\José\Documents\GitHub\TheVis\Chg002-TrigonometryPillars\obj\Debug\Chg002-TrigonometryPillars.pdb

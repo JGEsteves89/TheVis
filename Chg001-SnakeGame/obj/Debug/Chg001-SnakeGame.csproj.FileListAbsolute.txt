@@ -1,0 +1,13 @@
+C:\Users\José\Documents\GitHub\TheVis\Chg001-SnakeGame\bin\Debug\Chg001-SnakeGame.exe.config
+C:\Users\José\Documents\GitHub\TheVis\Chg001-SnakeGame\bin\Debug\Chg001-SnakeGame.exe
+C:\Users\José\Documents\GitHub\TheVis\Chg001-SnakeGame\bin\Debug\Chg001-SnakeGame.pdb
+C:\Users\José\Documents\GitHub\TheVis\Chg001-SnakeGame\bin\Debug\Engine.dll
+C:\Users\José\Documents\GitHub\TheVis\Chg001-SnakeGame\bin\Debug\OpenTK.dll
+C:\Users\José\Documents\GitHub\TheVis\Chg001-SnakeGame\bin\Debug\Engine.pdb
+C:\Users\José\Documents\GitHub\TheVis\Chg001-SnakeGame\bin\Debug\OpenTK.pdb
+C:\Users\José\Documents\GitHub\TheVis\Chg001-SnakeGame\bin\Debug\OpenTK.xml
+C:\Users\José\Documents\GitHub\TheVis\Chg001-SnakeGame\obj\Debug\Chg001-SnakeGame.csprojResolveAssemblyReference.cache
+C:\Users\José\Documents\GitHub\TheVis\Chg001-SnakeGame\obj\Debug\Chg001_SnakeGame.Properties.Resources.resources
+C:\Users\José\Documents\GitHub\TheVis\Chg001-SnakeGame\obj\Debug\Chg001-SnakeGame.csproj.GenerateResource.Cache
+C:\Users\José\Documents\GitHub\TheVis\Chg001-SnakeGame\obj\Debug\Chg001-SnakeGame.exe
+C:\Users\José\Documents\GitHub\TheVis\Chg001-SnakeGame\obj\Debug\Chg001-SnakeGame.pdb
