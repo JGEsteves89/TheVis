@@ -9,3 +9,14 @@ c:\users\josé\documents\visual studio 2015\Projects\Engine\Engine\obj\Debug\Eng
 C:\Users\José\Documents\Visual Studio 2015\Projects\Engine\Engine\bin\Debug\OpenTK.dll
 C:\Users\José\Documents\Visual Studio 2015\Projects\Engine\Engine\bin\Debug\OpenTK.pdb
 C:\Users\José\Documents\Visual Studio 2015\Projects\Engine\Engine\bin\Debug\OpenTK.xml
+C:\Users\José\Documents\GitHub\TheVis\Engine\bin\Debug\Engine.dll.config
+C:\Users\José\Documents\GitHub\TheVis\Engine\bin\Debug\Engine.dll
+C:\Users\José\Documents\GitHub\TheVis\Engine\bin\Debug\Engine.pdb
+C:\Users\José\Documents\GitHub\TheVis\Engine\bin\Debug\OpenTK.dll
+C:\Users\José\Documents\GitHub\TheVis\Engine\bin\Debug\OpenTK.pdb
+C:\Users\José\Documents\GitHub\TheVis\Engine\bin\Debug\OpenTK.xml
+C:\Users\José\Documents\GitHub\TheVis\Engine\obj\Debug\Engine.csprojResolveAssemblyReference.cache
+C:\Users\José\Documents\GitHub\TheVis\Engine\obj\Debug\Engine.Properties.Resources.resources
+C:\Users\José\Documents\GitHub\TheVis\Engine\obj\Debug\Engine.csproj.GenerateResource.Cache
+C:\Users\José\Documents\GitHub\TheVis\Engine\obj\Debug\Engine.dll
+C:\Users\José\Documents\GitHub\TheVis\Engine\obj\Debug\Engine.pdb

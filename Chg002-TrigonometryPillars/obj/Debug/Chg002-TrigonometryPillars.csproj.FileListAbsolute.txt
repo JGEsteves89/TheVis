@@ -10,3 +10,4 @@ C:\Users\José\Documents\GitHub\TheVis\Chg002-TrigonometryPillars\obj\Debug\Chg0
 C:\Users\José\Documents\GitHub\TheVis\Chg002-TrigonometryPillars\obj\Debug\Chg002-TrigonometryPillars.csproj.GenerateResource.Cache
 C:\Users\José\Documents\GitHub\TheVis\Chg002-TrigonometryPillars\obj\Debug\Chg002-TrigonometryPillars.exe
 C:\Users\José\Documents\GitHub\TheVis\Chg002-TrigonometryPillars\obj\Debug\Chg002-TrigonometryPillars.pdb
+C:\Users\José\Documents\GitHub\TheVis\Chg002-TrigonometryPillars\obj\Debug\Chg002-TrigonometryPillars.csprojResolveAssemblyReference.cache

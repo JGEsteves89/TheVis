@@ -27,20 +27,6 @@ namespace Engine {
         protected override void OnRenderFrame(FrameEventArgs e) {
             base.OnRenderFrame(e);
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-
-            //Vector3 cameraPos = new Vector3(0, 0, 100);
-            //Vector3 target = new Vector3(Size.Width / 2, Size.Height / 2, 0);
-            //Vector3 up = Vector3.UnitY;
-            //Matrix4 modelview = Matrix4.LookAt(cameraPos, target, up);
-            //GL.MatrixMode(MatrixMode.Modelview);
-            //GL.LoadMatrix(ref modelview);
-
-
-
-            //Matrix4 projection = Matrix4.CreatePerspectiveFieldOfView((float)Math.PI/6, Width / (float)Height, 1.0f, 64.0f);
-            //GL.MatrixMode(MatrixMode.Projection);
-            //GL.LoadMatrix(ref projection);
-
             Draw();
             SwapBuffers();
 
@@ -107,6 +93,22 @@ namespace Engine {
             GL.Vertex2(x, y + h);
             GL.Vertex2(x + w, y + h);
             GL.Vertex2(x + w, y);
+            GL.End();
+        }
+        public static void DrawPrism(int x, int y,int z, double w, double h, double d) {
+            GL.Begin(PrimitiveType.Polygon);
+            // Front
+            GL.Vertex3(x    , y    , z);
+            GL.Vertex3(x + w, y    , z);
+            GL.Vertex3(x + w, y + h, z);
+            GL.Vertex3(x    , y + h, z);
+
+            // Back
+            GL.Vertex3(x    , y    , z + d);
+            GL.Vertex3(x + w, y    , z + d);
+            GL.Vertex3(x + w, y + h, z + d);
+            GL.Vertex3(x    , y + h, z + d);
+
             GL.End();
         }
     }
