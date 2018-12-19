@@ -11,3 +11,6 @@ c:\Users\José\documents\visual studio 2015\Projects\Engine\Template\obj\Debug\T
 C:\Users\José\Documents\Visual Studio 2015\Projects\Engine\Template\bin\Debug\OpenTK.dll
 C:\Users\José\Documents\Visual Studio 2015\Projects\Engine\Template\bin\Debug\OpenTK.pdb
 C:\Users\José\Documents\Visual Studio 2015\Projects\Engine\Template\bin\Debug\OpenTK.xml
+C:\Users\José\Documents\GitHub\TheVis\Template\bin\Debug\Template.exe.config
+C:\Users\José\Documents\GitHub\TheVis\Template\obj\Debug\Template.exe
+C:\Users\José\Documents\GitHub\TheVis\Template\obj\Debug\Template.pdb
