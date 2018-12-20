@@ -1,0 +1,110 @@
+.vs
+.localhistory
+
+# Ignore the release folder (No longer in use)
+SceneReleaseDlls/*
+
+# Ignore the nuget packages folder
+*/packages/*
+*.nupkg
+
+**/*.touch
+**/Languages/*.dll
+
+# Python compiled files
+*.pyc
+
+# Visual Sudio code files
+*.idea*
+
+# Pycharm files
+*.vscode*
+
+# Generated code
+*.cxx
+
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+*[Dd]ebug.x64/
+*[Ll]ineInfo.x64/
+*[Rr]elease.x64/
+*[Rr]elease/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Visual Studio 2015/2017 cache/options directory
+.vs/
+
+# Visual Studio 2017 auto generated files
+Generated\ Files/
+
+# Files built by Visual Studio
+*_i.c
+*_p.c
+*_h.h
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+# Visual C++ cache files
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# TeamCity is a build add-in
+_TeamCity*
+
+# Visual Studio code coverage results
+*.coverage
+*.coveragexml
