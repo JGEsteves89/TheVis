@@ -1,0 +1,8 @@
+* text=auto !eol
+
+**/*.vcxproj -text
+**/*.vcproj -text
+**/*.vcxproj.filters -text
+**/*.wxi -text
+**/*.wxs -text
+
