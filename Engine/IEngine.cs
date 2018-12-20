@@ -46,7 +46,7 @@ namespace Engine {
 
         }
         public virtual void Draw() {
-            ShowAxis();
+            //ShowAxis();
         }
         protected override void OnResize(EventArgs e) {
             base.OnResize(e);

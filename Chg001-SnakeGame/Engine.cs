@@ -45,10 +45,22 @@ namespace Chg001_SnakeGame {
                 if (pos.Y < 0)
                     pos.Y = size.Height - SCALE;
             }
+            internal bool contains(Point point) {
+                foreach (Point item in tail) {
+                    if (item.X == point.X && item.Y == point.Y)
+                        return true;
+                }
+                return false;
+            }
             internal void draw() {
-                SetColor(Color.White);
+                bool first = false;
+                SetColor(Color.Red);
                 foreach (Point p in tail) {
                     DrawRectangle(p.X, p.Y, SCALE, SCALE);
+                    if (!first) {
+                        first = true;
+                        SetColor(Color.White);
+                    }
                 }
             }
             internal bool eat(Food f) {
@@ -75,13 +87,35 @@ namespace Chg001_SnakeGame {
         Snake s;
         Food f;
         void think() {
-            s.dir = new Point(0, 0);
+            List<Point> possible = new List<Point>();
             Point target = new Point(f.pos.X - s.pos.X, f.pos.Y - s.pos.Y);
             if (Math.Abs(target.X) + Math.Abs(target.Y) == 0) return;
-            if (Math.Abs(target.X) > Math.Abs(target.Y))
-                s.dir.X = target.X / Math.Abs(target.X);
-            else
-                s.dir.Y = target.Y / Math.Abs(target.Y);
+
+            if (Math.Abs(target.X) > Math.Abs(target.Y)) {
+                possible.Add(new Point(target.X / Math.Abs(target.X), 0));
+                if (target.Y != 0)
+                    possible.Add(new Point(0, target.Y / Math.Abs(target.Y)));
+                else
+                    possible.Add(new Point(0, 1));
+
+            } else {
+                possible.Add(new Point(0, target.Y / Math.Abs(target.Y)));
+                if (target.X != 0)
+                    possible.Add(new Point(target.X / Math.Abs(target.X), 0));
+                else
+                    possible.Add(new Point(1, 0));
+            }
+
+            possible.Add(new Point(-possible[0].X, -possible[0].Y));
+            possible.Add(new Point(-possible[1].X, -possible[1].Y));
+
+            foreach (Point item in possible) {
+                if (!s.contains(new Point(item.X * SCALE + s.pos.X, item.Y * SCALE + s.pos.Y))) {
+                    s.dir = item;
+                    return;
+                }
+            }
+
         }
         public override void SetUp() {
             base.SetUp();
