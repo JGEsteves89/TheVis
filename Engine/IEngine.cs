@@ -26,6 +26,7 @@ namespace Engine {
         }
         protected override void OnRenderFrame(FrameEventArgs e) {
             base.OnRenderFrame(e);
+
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
             Draw();
             SwapBuffers();
@@ -54,18 +55,25 @@ namespace Engine {
         public static void Canvas(int width, int height) {
             The.ClientSize = new Size(width, height);
             GL.Viewport(0,0,The.ClientSize.Width,The.ClientSize.Height);
-            GL.Ortho(0, The.ClientSize.Width, 0, The.ClientSize.Height, 100, -100);
+            GL.Ortho(0, The.ClientSize.Width, 0, The.ClientSize.Height, 800, -800);
         }
+        public static void Camara(float x, float y, float z, float tx, float ty, float tz)
+        {
+            Matrix4 modelview = Matrix4.LookAt(new Vector3(x, y, z), new Vector3(0,0,-1), Vector3.UnitY);
+            GL.MatrixMode(MatrixMode.Modelview);
+            GL.LoadMatrix(ref modelview);
+        }
+
         public static void BackgroundColor(byte color) {
             GL.ClearColor(Color.FromArgb(color, color, color));
         }
-        public static void RotateY(float angRad)
+        public static void RotateY(float angDeg)
         {
-            GL.Rotate(angRad, 0.0f, 1.0f, 0.0f);
+            GL.Rotate(angDeg, 0.0f, 1.0f, 0.0f);
         }
-        public static void RotateX(float angRad)
+        public static void RotateX(float angDeg)
         {
-            GL.Rotate(angRad, 1.0f, 0.0f, 0.0f);
+            GL.Rotate(angDeg, 1.0f, 0.0f, 0.0f);
         }
         public static void Translate(float dx,float dy, float dz)
         {
@@ -106,31 +114,48 @@ namespace Engine {
             GL.Vertex2(x + w, y);
             GL.End();
         }
-        public static void DrawPrism(int x, int y,int z, double w, double h, double d) {
-            GL.Begin(PrimitiveType.Polygon);
-            // Front
-            GL.Vertex3(x    , y    , z);
-            GL.Vertex3(x + w, y    , z);
-            GL.Vertex3(x + w, y + h, z);
-            GL.Vertex3(x    , y + h, z);
+        public static void DrawCube(int x, int y, int z, int w, int h, int d) {
+            GL.Begin(PrimitiveType.Quads);
 
-            // Back
-            GL.Vertex3(x, y, z+ d);
-            GL.Vertex3(x + w, y, z+ d);
-            GL.Vertex3(x + w, y + h, z+ d);
-            GL.Vertex3(x, y + h, z+ d);
+            Vector3[] v = new Vector3[]
+            {
+                new Vector3(x + 0 * w, y + 0 * h, z + 0 * d),
+                new Vector3(x + 1 * w, y + 0 * h, z + 0 * d),
+                new Vector3(x + 1 * w, y + 0 * h, z + 1 * d),
+                new Vector3(x + 0 * w, y + 0 * h, z + 1 * d),
+                new Vector3(x + 0 * w, y + 1 * h, z + 0 * d),
+                new Vector3(x + 1 * w, y + 1 * h, z + 0 * d),
+                new Vector3(x + 1 * w, y + 1 * h, z + 1 * d),
+                new Vector3(x + 0 * w, y + 1 * h, z + 1 * d)
+            };
 
-            // Right
-            GL.Vertex3(x + w, y, z);
-            GL.Vertex3(x + w, y, z + d);
-            GL.Vertex3(x + w, y + h, z + d);
-            GL.Vertex3(x + w, y + h, z);
+            int[] bottom = new int[] { 0, 1, 2, 3 };
+            int[] top = new int[] { 4, 5, 6, 7 };
+            int[] front = new int[] { 0, 1, 5, 4 };
+            int[] right = new int[] { 1, 2, 6, 5 };
+            int[] back = new int[] { 2, 3, 7, 6 };
+            int[] left = new int[] { 3, 0, 4, 7 };
 
-            // left
-            GL.Vertex3(x, y, z);
-            GL.Vertex3(x, y, z + d);
-            GL.Vertex3(x, y + h, z + d);
-            GL.Vertex3(x, y + h, z);
+            List<int[]> faces = new List<int[]>();
+            faces.Add(bottom);
+            faces.Add(top);
+            faces.Add(front);
+            faces.Add(right);
+            faces.Add(back);
+            faces.Add(left);
+
+            float count = 0;
+            foreach (int [] face in faces)
+            {
+                count++;
+                GL.Color3(count * 1 / 8f,1-1/8f * count, 0.0f);
+                foreach (int i in face)
+                {
+                    GL.Vertex3(v[i]);
+                }
+            }
+
+    
 
             GL.End();
         }

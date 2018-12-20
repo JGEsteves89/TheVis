@@ -12,22 +12,37 @@ using OpenTK.Input;
 namespace Chg002_TrigonometryPillars {
 
     public class Engine : IEngine {
-        double osc = 0;
+        float osc = 0;
+        int cols = 15;
+        int rows = 15;
+        int size = 30;
         public override void SetUp() {
             base.SetUp();
             Canvas(800, 800);
             BackgroundColor(51);
-            RotateY((float)Math.PI);
-            RotateX((float)Math.PI);
-            Translate(200, 200, -50);
+            Translate(400, 200, 0);
+
+            RotateX(-25f);
+            RotateY(-45f);
+            //
+            //RotateX(45f);
+
 
         }
         public override void Draw() {
             base.Draw();
+            for (int i = 0; i < cols; i++)
+            {
+                for (int j = 0; j < rows; j++)
+                {
+                    double dist = Math.Abs(rows / 2f - i) + Math.Abs(cols / 2f - j);
+                    int variance = size / 2 + (int)(size/2 * Math.Cos(osc + dist*0.4));
+                    DrawCube(i * size, 0 , j * size, size, size + variance, size);
+                }
 
-            //int variance = 25 + (int)(25 * Math.Cos(osc));
-            //DrawPrism(0, 0, 0, 50, 50 + variance, 50);
-            osc += 0.05;
+            }
+            osc += 0.1f;
+            //Console.WriteLine(osc);
         }
     }
 }
