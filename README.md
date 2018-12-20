@@ -1,8 +1,6 @@
 # TheVis
-Visualization experiments and tricks in c#
-## Chg001-SnakeGame
-![Alt Text](Demos/Chg001-SnakeGame.gif)
-## Chg001-SnakeGame
-<img src="Demos/Chg001-SnakeGame.gif" width="800" height="800">
+Visualization experiments and challenges in c#
 ## Chg001-SnakeGame
 <img src="Demos/Chg001-SnakeGame.gif" width="400" height="400">
+## Chg002-TrigonometryPillars
+<img src="Demos/Chg002-TrigonometryPillars.gif" width="400" height="400">
