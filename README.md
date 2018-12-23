@@ -11,4 +11,4 @@ Visualization experiments and challenges in c#
 <img src="Demos/Chg003-FireWorks.gif" width="400" height="400">
 
 ## Chg004-DoubleArmPainter
-<img src="Demos/Chg004-DoubleArmPainter" width="400" height="400">
+<img src="Demos/Chg004-DoubleArmPainter.gif" width="400" height="400">
