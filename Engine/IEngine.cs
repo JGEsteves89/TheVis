@@ -85,6 +85,12 @@ namespace Engine {
                 (float)color.B / 255,
                 (float)color.A / 255);
         }
+        public static void SetLineWidth(float width) {
+            GL.LineWidth(width);
+        }
+        public static void SetPointSize(float size) {
+            GL.PointSize(size);
+        }
         public static void SetFrameRate(int frameRate) {
             The.TargetRenderFrequency = frameRate;
         }
@@ -116,6 +122,17 @@ namespace Engine {
         }
         public static void DrawRectangle(int x, int y, int w, int h) {
             DrawRectangle(x, y, w, h);
+        }
+        public static void DrawPoint(float x, float y) {
+            GL.Begin(PrimitiveType.Points);
+            GL.Vertex2(x, y);
+            GL.End();
+        }
+        public static void DrawLine(float x1, float y1, float x2, float y2) {
+            GL.Begin(PrimitiveType.Lines);
+            GL.Vertex2(x1, y1);
+            GL.Vertex2(x2, y2);
+            GL.End();
         }
         public static void DrawCube(int x, int y, int z, int w, int h, int d) {
             GL.Begin(PrimitiveType.Quads);
@@ -196,15 +213,13 @@ namespace Engine {
         }
 
         public static float Mapf(float value, float minS, float maxS, float minT, float maxT) {
+            value = Truncf(value, minS, maxS);
             float racio = (value - minS) / (maxS - minS);
             float nValue = minT + (maxT - minT) * racio;
 
             return nValue;
         }
         public static int Mapi(int value, int minS, int maxS, int minT, int maxT) {
-            float racio = (value - minS) / (maxS - minS);
-            float nValue = minT + (maxT - minT) * racio;
-
             return (int)Mapf(value,minS,maxS,minT,maxT);
         }
 
