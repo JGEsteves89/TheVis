@@ -37,7 +37,8 @@ namespace Chg002_TrigonometryPillars {
                 {
                     double dist = Math.Abs(rows / 2f - i) + Math.Abs(cols / 2f - j);
                     int variance = size / 2 + (int)(size/2 * Math.Cos(osc + dist*0.4));
-                    DrawCube(i * size, 0 , j * size, size, size + variance, size);
+                    DrawCube(i * size, 0, j * size, size, size + variance, size);
+                    DrawCube(i * size, -(size + variance), j * size, size, size + variance, size);
                 }
 
             }

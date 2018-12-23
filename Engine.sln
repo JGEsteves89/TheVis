@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chg001-SnakeGame", "Chg001-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chg002-TrigonometryPillars", "Chg002-TrigonometryPillars\Chg002-TrigonometryPillars.csproj", "{ABFC7105-9C08-4CF9-9C6C-C60294CD6E30}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chg003-FireWorks", "Chg003-FireWorks\Chg003-FireWorks.csproj", "{C2EC90AD-4625-4CBE-9F16-BFB1A8B62A6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{ABFC7105-9C08-4CF9-9C6C-C60294CD6E30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABFC7105-9C08-4CF9-9C6C-C60294CD6E30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABFC7105-9C08-4CF9-9C6C-C60294CD6E30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2EC90AD-4625-4CBE-9F16-BFB1A8B62A6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2EC90AD-4625-4CBE-9F16-BFB1A8B62A6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2EC90AD-4625-4CBE-9F16-BFB1A8B62A6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2EC90AD-4625-4CBE-9F16-BFB1A8B62A6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

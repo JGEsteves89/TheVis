@@ -14,6 +14,7 @@ using OpenTK.Graphics.OpenGL;
 namespace Engine {
     public class IEngine : GameWindow {
         static IEngine instance = null;
+        static Random rnd = new Random();
         protected IEngine() {
             instance = this;
             Title = "Visualization Engine";
@@ -51,7 +52,6 @@ namespace Engine {
         protected override void OnResize(EventArgs e) {
             base.OnResize(e);
         }
-
         public static void Canvas(int width, int height) {
             The.ClientSize = new Size(width, height);
             GL.Viewport(0,0,The.ClientSize.Width,The.ClientSize.Height);
@@ -63,7 +63,6 @@ namespace Engine {
             GL.MatrixMode(MatrixMode.Modelview);
             GL.LoadMatrix(ref modelview);
         }
-
         public static void BackgroundColor(byte color) {
             GL.ClearColor(Color.FromArgb(color, color, color));
         }
@@ -80,15 +79,16 @@ namespace Engine {
             GL.Translate(dx, dy, dz);
         }
         public static void SetColor(Color color) {
-            GL.Color3(
+            GL.Color4(
                 (float)color.R / 255,
                 (float)color.G / 255,
-                (float)color.B / 255);
+                (float)color.B / 255,
+                (float)color.A / 255);
         }
         public static void SetFrameRate(int frameRate) {
             The.TargetRenderFrequency = frameRate;
         }
-        public  void ShowAxis() {
+        public static void ShowAxis() {
             float size = 100.0f;
             GL.LineWidth(2.5f);
             GL.Begin(PrimitiveType.Lines);
@@ -106,13 +106,16 @@ namespace Engine {
             GL.Vertex3(0, 0, size);
             GL.End();
         }
-        public static void DrawRectangle(int x, int y, int w, int h) {
+        public static void DrawRectangle(float x, float y, float w, float h) {
             GL.Begin(PrimitiveType.Quads);
             GL.Vertex2(x, y);
             GL.Vertex2(x, y + h);
             GL.Vertex2(x + w, y + h);
             GL.Vertex2(x + w, y);
             GL.End();
+        }
+        public static void DrawRectangle(int x, int y, int w, int h) {
+            DrawRectangle(x, y, w, h);
         }
         public static void DrawCube(int x, int y, int z, int w, int h, int d) {
             GL.Begin(PrimitiveType.Quads);
@@ -159,5 +162,62 @@ namespace Engine {
 
             GL.End();
         }
+
+        public static float Rndf(float min, float max) {
+            return min + (max - min) * (float)rnd.NextDouble();
+        }
+        public static float Rndf(float max) {
+            return Rndf(0f, max);
+        }
+        public static int Rndi(int min, int max) {
+            return rnd.Next(min, max);
+        }
+        public static int Rndi(int max) {
+            return Rndi(0, max);
+        }
+        public static Vector2 Rndv2(float mag) {
+            Vector2 vec = new Vector2(Rndf(-1,1), Rndf(-1,1));
+            vec.Normalize();
+            vec = vec * mag;
+            return vec;
+        }
+        public static Color Rndc() {
+            return Color.FromArgb(Rndi(255), Rndi(255), Rndi(255));
+        }
+
+        public static float Truncf(float value, float min, float max) {
+            AssertMaxMinf(ref min, ref max);
+            value = Math.Max(min, value);
+            value = Math.Min(max, value);
+            return value;
+        }
+        public static int Trunci(int value, int min, int max) {
+            return (int)Truncf(value, min, max);
+        }
+
+        public static float Mapf(float value, float minS, float maxS, float minT, float maxT) {
+            float racio = (value - minS) / (maxS - minS);
+            float nValue = minT + (maxT - minT) * racio;
+
+            return nValue;
+        }
+        public static int Mapi(int value, int minS, int maxS, int minT, int maxT) {
+            float racio = (value - minS) / (maxS - minS);
+            float nValue = minT + (maxT - minT) * racio;
+
+            return (int)Mapf(value,minS,maxS,minT,maxT);
+        }
+
+        static void AssertMaxMini(ref int min,ref int max) {
+            int tmp = max;
+            max = Math.Max(min, max);
+            min = Math.Min(min, tmp);
+        }
+        static void AssertMaxMinf(ref float min, ref float max) {
+            float tmp = max;
+            max = Math.Max(min, max);
+            min = Math.Min(min, tmp);
+        }
     }
+
 }
