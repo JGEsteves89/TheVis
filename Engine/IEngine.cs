@@ -120,9 +120,6 @@ namespace Engine {
             GL.Vertex2(x + w, y);
             GL.End();
         }
-        public static void DrawRectangle(int x, int y, int w, int h) {
-            DrawRectangle(x, y, w, h);
-        }
         public static void DrawPoint(float x, float y) {
             GL.Begin(PrimitiveType.Points);
             GL.Vertex2(x, y);
@@ -179,7 +176,25 @@ namespace Engine {
 
             GL.End();
         }
+        public static void DrawCircle(float cx, float cy, float r) {
+            int count = 20;
+            GL.Begin(PrimitiveType.TriangleFan);
 
+            //Center of the circle
+            GL.Vertex2(cx, cy);
+
+            for (int i = 0; i <= count; i++) {
+                float theta = 2.0f * (float)Math.PI * (float)i / count;
+
+                float x = r * (float)Math.Cos(theta);//calculate the x component
+                float y = r * (float)Math.Sin(theta);//calculate the y component
+                GL.Vertex2(x + cx, y + cy);//output vertex
+            }
+            GL.End();
+        }
+        public static void SetFill(Color color) {
+            GL.Color4(color);
+        }
         public static float Rndf(float min, float max) {
             return min + (max - min) * (float)rnd.NextDouble();
         }

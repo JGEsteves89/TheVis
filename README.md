@@ -12,3 +12,7 @@ Visualization experiments and challenges in c#
 
 ## Chg004-DoubleArmPainter
 <img src="Demos/Chg004-DoubleArmPainter.gif" width="400" height="400">
+
+## Chg006-SunflowerNucleus
+<img src="Demos/Chg006-SunflowerNucleus.gif" width="400" height="400">
+
