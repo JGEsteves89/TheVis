@@ -16,3 +16,5 @@ Visualization experiments and challenges in c#
 ## Chg006-SunflowerNucleus
 <img src="Demos/Chg006-SunflowerNucleus.gif" width="400" height="400">
 
+## Chg008-MagicWords
+<img src="Demos/Chg008-MagicWords.gif" width="400" height="400">
