@@ -20,4 +20,4 @@ Visualization experiments and challenges in c#
 <img src="Demos/Chg008-MagicWords.gif" width="400" height="400">
 
 ## Chg009-CircledSign
-<img src="Demos/Chg008-MagicWords.gif" width="1200" height="400">
+<img src="Demos/Chg009-CircledSign.gif" width="1200" height="400">
