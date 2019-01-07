@@ -23,7 +23,7 @@ namespace Chg009_CircledSign {
             }
 
             internal void grow() {
-                radius += 1;
+                radius += 0.05f;
             }
 
             internal void draw() {
@@ -66,10 +66,15 @@ namespace Chg009_CircledSign {
 
         public override void Draw() {
             base.Draw();
-            int number = 30;
+
+            foreach (Circle circle in circles) {
+                circle.draw();
+            }
+
+            int number = 1;
             int count = 0;
 
-            while(count != number) {
+            while (count != number) {
                 if ((textPoints.Count == 0)) break;
                 // Generates a random point in the image
                 Vector2 newPoint = textPoints[Rndi(textPoints.Count)];
@@ -98,7 +103,6 @@ namespace Chg009_CircledSign {
                     else
                         circle.grow();
                 }
-                circle.draw();
             }
         }
 
