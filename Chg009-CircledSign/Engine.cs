@@ -27,10 +27,8 @@ namespace Chg009_CircledSign {
             }
 
             internal void draw() {
-                if (!colorMap.ContainsKey((int) radius)) {
-                    colorMap.Add((int)radius, Rndc());
-                }
-                SetFill(colorMap[(int)radius]);
+                int green = Mapi((int)radius, 0, 15, 0, 200);
+                SetFill(Color.FromArgb(100, green,100 ));
                 DrawCircle(pos.X, pos.Y, radius);
             }
         }
@@ -39,7 +37,6 @@ namespace Chg009_CircledSign {
         public static float HEIGHT = 800;
         public List<Circle> circles = new List<Circle>();
         public List<Vector2> textPoints = new List<Vector2>();
-        public static Dictionary<int, Color> colorMap = new Dictionary<int, Color>();
         public override void SetUp() {
             base.SetUp();
             Canvas((int)WIDTH, (int)HEIGHT);
@@ -69,7 +66,7 @@ namespace Chg009_CircledSign {
 
         public override void Draw() {
             base.Draw();
-            int number = 10;
+            int number = 30;
             int count = 0;
 
             while(count != number) {
