@@ -1,0 +1,64 @@
+
+        public class Particle
+        {
+            public Vector2 pos;
+            public Vector2 vec;
+            public Vector2 acc;
+            public float radius = 4;
+            public Particle(Vector2 pos, Vector2 vec, Vector2 acc)
+            {
+                this.pos = pos;
+                this.vec = vec;
+                this.acc = acc;
+            }
+            public Particle(Vector2 pos) : this(pos, new Vector2(0, 0), new Vector2(0, 0))
+            {
+            }
+            public Particle(Vector2 pos, Vector2 vec) : this(pos, vec, new Vector2(0, 0))
+            {
+            }
+            public virtual void Update()
+            {
+                pos += vec;
+                vec += acc;
+            }
+            public virtual void Draw()
+            {
+                SetColor(Color.White);
+                DrawCircle(pos.X, pos.Y, radius);
+            }
+        }
+        public class Vehicle : Particle
+        {
+            public Vector2 target = new Vector2(0, 0);
+            public float speed = 2f;
+            public Vehicle(Vector2 pos, float speed = 2f) : base(pos)
+            {
+            }
+            public Vehicle(Vector2 pos, Vector2 target, float speed = 2f) : base(pos)
+            {
+                this.target = target;
+                this.acc = Rndv2(1);
+            }
+            public override void Update()
+            {
+                base.Update();
+                Vector2 heading = target - pos;
+                if (Math.Abs(heading.X) > Math.Abs(heading.Y))
+                {
+                    float dir = (float)heading.X / (float)Math.Abs(heading.X);
+                    vec = new Vector2(dir, 0) * speed;
+                }
+                else
+                {
+                    float dir = (float)heading.Y / (float)Math.Abs(heading.Y);
+                    vec = new Vector2(0, dir) * speed;
+                }
+                if (heading.Length < speed)
+                {
+                    pos = target;
+                    vec = new Vector2(0, 0);
+                }
+            }
+
+        }
