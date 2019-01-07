@@ -12,10 +12,11 @@ using OpenTK.Input;
 namespace Template {
 
     public class Engine : IEngine {
-        
+        public static float WIDTH = 800;
+        public static float HEIGHT = 800;
         public override void SetUp() {
             base.SetUp();
-            Canvas(800, 800);
+            Canvas((int)WIDTH, (int)HEIGHT);
             BackgroundColor(51);
         }
         public override void Draw() {
