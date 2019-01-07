@@ -18,3 +18,6 @@ Visualization experiments and challenges in c#
 
 ## Chg008-MagicWords
 <img src="Demos/Chg008-MagicWords.gif" width="400" height="400">
+
+## Chg009-CircledSign
+<img src="Demos/Chg008-MagicWords.gif" width="1200" height="400">
