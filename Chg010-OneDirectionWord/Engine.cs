@@ -18,9 +18,16 @@ namespace Chg010_OneDirectionWord {
             base.SetUp();
             Canvas((int)WIDTH, (int)HEIGHT);
             BackgroundColor(51);
+            Translate(WIDTH / 2, HEIGHT / 2, 0);
+            
         }
         public override void Draw() {
             base.Draw();
+            float radius = 100;
+            // First things firts
+            // Draw a sphere
+            DrawSphere(0, 0, 0, radius);
+            RotateY(1f);
         }
     }
 }

@@ -23,6 +23,13 @@ namespace Engine {
             int screenX = Screen.PrimaryScreen.Bounds.Width;
             int screenY = Screen.PrimaryScreen.Bounds.Height;
             Location = new Point(screenX / 2 - Size.Width / 2, screenY / 2 - Size.Height / 2);
+
+            // Enable Light 0 and set its parameters.
+            GL.Light(LightName.Light0, LightParameter.Position, new float[] { 0.5f, 0.5f, 0.5f, 0.1f });
+            GL.Light(LightName.Light0, LightParameter.Diffuse, new float[] { 0.5f, 0.5f, 0.5f, 0.1f });
+
+            GL.Enable(EnableCap.Lighting);
+            GL.Enable(EnableCap.Light0);
             GL.Enable(EnableCap.DepthTest);
         }
         protected override void OnRenderFrame(FrameEventArgs e) {
@@ -54,28 +61,24 @@ namespace Engine {
         }
         public static void Canvas(int width, int height) {
             The.ClientSize = new Size(width, height);
-            GL.Viewport(0,0,The.ClientSize.Width,The.ClientSize.Height);
+            GL.Viewport(0, 0, The.ClientSize.Width, The.ClientSize.Height);
             GL.Ortho(0, The.ClientSize.Width, 0, The.ClientSize.Height, 800, -800);
         }
-        public static void Camara(float x, float y, float z, float tx, float ty, float tz)
-        {
-            Matrix4 modelview = Matrix4.LookAt(new Vector3(x, y, z), new Vector3(0,0,-1), Vector3.UnitY);
+        public static void Camara(float x, float y, float z, float tx, float ty, float tz) {
+            Matrix4 modelview = Matrix4.LookAt(new Vector3(x, y, z), new Vector3(0, 0, -1), Vector3.UnitY);
             GL.MatrixMode(MatrixMode.Modelview);
             GL.LoadMatrix(ref modelview);
         }
         public static void BackgroundColor(byte color) {
             GL.ClearColor(Color.FromArgb(color, color, color));
         }
-        public static void RotateY(float angDeg)
-        {
+        public static void RotateY(float angDeg) {
             GL.Rotate(angDeg, 0.0f, 1.0f, 0.0f);
         }
-        public static void RotateX(float angDeg)
-        {
+        public static void RotateX(float angDeg) {
             GL.Rotate(angDeg, 1.0f, 0.0f, 0.0f);
         }
-        public static void Translate(float dx,float dy, float dz)
-        {
+        public static void Translate(float dx, float dy, float dz) {
             GL.Translate(dx, dy, dz);
         }
         public static void SetColor(Color color) {
@@ -112,6 +115,8 @@ namespace Engine {
             GL.Vertex3(0, 0, size);
             GL.End();
         }
+
+        // 2D stuff
         public static void DrawRectangle(float x, float y, float w, float h) {
             GL.Begin(PrimitiveType.Quads);
             GL.Vertex2(x, y);
@@ -131,7 +136,25 @@ namespace Engine {
             GL.Vertex2(x2, y2);
             GL.End();
         }
-        public static void DrawCube(int x, int y, int z, int w, int h, int d) {
+        public static void DrawCircle(float cx, float cy, float r) {
+            int count = 20;
+            GL.Begin(PrimitiveType.TriangleFan);
+
+            //Center of the circle
+            GL.Vertex2(cx, cy);
+
+            for (int i = 0; i <= count; i++) {
+                float theta = 2.0f * (float)Math.PI * (float)i / count;
+
+                float x = r * (float)Math.Cos(theta);//calculate the x component
+                float y = r * (float)Math.Sin(theta);//calculate the y component
+                GL.Vertex2(x + cx, y + cy);//output vertex
+            }
+            GL.End();
+        }
+
+        // 3D stuff
+        public static void DrawCube(float x, float y, float z, float w, float h, float d) {
             GL.Begin(PrimitiveType.Quads);
 
             Vector3[] v = new Vector3[]
@@ -162,36 +185,49 @@ namespace Engine {
             faces.Add(left);
 
             float count = 0;
-            foreach (int [] face in faces)
-            {
+            foreach (int[] face in faces) {
                 count++;
-                GL.Color3(count * 1 / 8f,1-1/8f * count, 0.0f);
-                foreach (int i in face)
-                {
+                GL.Color3(count * 1 / 8f, 1 - 1 / 8f * count, 0.0f);
+                foreach (int i in face) {
                     GL.Vertex3(v[i]);
                 }
             }
-
-    
-
             GL.End();
         }
-        public static void DrawCircle(float cx, float cy, float r) {
+        public static void DrawSphere(float cx, float cy, float cz, float r) {
             int count = 20;
-            GL.Begin(PrimitiveType.TriangleFan);
+            GL.Begin(PrimitiveType.QuadStrip);
 
-            //Center of the circle
-            GL.Vertex2(cx, cy);
+            float deltaTheta = 2f * (float)Math.PI / count;
+            float deltaPhi = (float)Math.PI / count;
+            for (float theta = 0; theta <= 2f * (float)Math.PI; theta += deltaTheta) {
+                for (float phi = 0; phi <= (float)Math.PI; phi += deltaPhi) {
+                    float z1 = cz + r * (float)Math.Sin(phi + deltaPhi) * (float)Math.Cos(theta + deltaTheta);
+                    float x1 = cx + r * (float)Math.Sin(phi + deltaPhi) * (float)Math.Sin(theta + deltaTheta);
+                    float y1 = cy + r * (float)Math.Cos(phi + deltaPhi);
 
-            for (int i = 0; i <= count; i++) {
-                float theta = 2.0f * (float)Math.PI * (float)i / count;
+                    float z2 = cz + r * (float)Math.Sin(phi) * (float)Math.Cos(theta + deltaTheta);
+                    float x2 = cx + r * (float)Math.Sin(phi) * (float)Math.Sin(theta + deltaTheta);
+                    float y2 = cy + r * (float)Math.Cos(phi);
 
-                float x = r * (float)Math.Cos(theta);//calculate the x component
-                float y = r * (float)Math.Sin(theta);//calculate the y component
-                GL.Vertex2(x + cx, y + cy);//output vertex
+                    float z3 = cz + r * (float)Math.Sin(phi) * (float)Math.Cos(theta);
+                    float x3 = cx + r * (float)Math.Sin(phi) * (float)Math.Sin(theta);
+                    float y3 = cy + r * (float)Math.Cos(phi);
+
+                    float z4 = cz + r * (float)Math.Sin(phi + deltaPhi) * (float)Math.Cos(theta);
+                    float x4 = cx + r * (float)Math.Sin(phi + deltaPhi) * (float)Math.Sin(theta);
+                    float y4 = cy + r * (float)Math.Cos(phi + deltaPhi);
+
+                    GL.Vertex3(x4, y4, z4);
+                    GL.Vertex3(x3, y3, z3);
+                    GL.Vertex3(x1, y1, z1);
+                    GL.Vertex3(x2, y2, z2);
+                }
             }
             GL.End();
         }
+
+
         public static void SetFill(Color color) {
             GL.Color4(color);
         }
@@ -208,7 +244,7 @@ namespace Engine {
             return Rndi(0, max);
         }
         public static Vector2 Rndv2(float mag) {
-            Vector2 vec = new Vector2(Rndf(-1,1), Rndf(-1,1));
+            Vector2 vec = new Vector2(Rndf(-1, 1), Rndf(-1, 1));
             vec.Normalize();
             vec = vec * mag;
             return vec;
@@ -235,10 +271,10 @@ namespace Engine {
             return nValue;
         }
         public static int Mapi(int value, int minS, int maxS, int minT, int maxT) {
-            return (int)Mapf(value,minS,maxS,minT,maxT);
+            return (int)Mapf(value, minS, maxS, minT, maxT);
         }
 
-        static void AssertMaxMini(ref int min,ref int max) {
+        static void AssertMaxMini(ref int min, ref int max) {
             int tmp = max;
             max = Math.Max(min, max);
             min = Math.Min(min, tmp);
