@@ -21,3 +21,6 @@ Visualization experiments and challenges in c#
 
 ## Chg009-CircledSign
 <img src="Demos/Chg009-CircledSign.gif" width="1200" height="400">
+
+## Chg010-OneDirectionWord
+<img src="Demos/Chg010-OneDirectionWord.gif" width="1200" height="400">
