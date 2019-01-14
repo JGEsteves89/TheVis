@@ -1,4 +1,4 @@
-
+usual size of the giff recorder 30 784 188
         public class Particle
         {
             public Vector2 pos;

@@ -15,6 +15,7 @@ namespace Engine {
     public class IEngine : GameWindow {
         static IEngine instance = null;
         static Random rnd = new Random();
+        static Vector4 currentColor = new Vector4(0, 0, 0, 255);
         protected IEngine() {
             instance = this;
             Title = "Visualization Engine";
@@ -24,12 +25,6 @@ namespace Engine {
             int screenY = Screen.PrimaryScreen.Bounds.Height;
             Location = new Point(screenX / 2 - Size.Width / 2, screenY / 2 - Size.Height / 2);
 
-            // Enable Light 0 and set its parameters.
-            GL.Light(LightName.Light0, LightParameter.Position, new float[] { 0.5f, 0.5f, 0.5f, 0.1f });
-            GL.Light(LightName.Light0, LightParameter.Diffuse, new float[] { 0.5f, 0.5f, 0.5f, 0.1f });
-
-            GL.Enable(EnableCap.Lighting);
-            GL.Enable(EnableCap.Light0);
             GL.Enable(EnableCap.DepthTest);
         }
         protected override void OnRenderFrame(FrameEventArgs e) {
@@ -82,11 +77,16 @@ namespace Engine {
             GL.Translate(dx, dy, dz);
         }
         public static void SetColor(Color color) {
-            GL.Color4(
+            currentColor = new Vector4(
                 (float)color.R / 255,
                 (float)color.G / 255,
                 (float)color.B / 255,
                 (float)color.A / 255);
+            GL.Color4(currentColor);
+        }
+        public static void SetColor(Vector4 color) {
+            currentColor = color;
+            GL.Color4(currentColor);
         }
         public static void SetLineWidth(float width) {
             GL.LineWidth(width);
@@ -194,14 +194,23 @@ namespace Engine {
             }
             GL.End();
         }
+
         public static void DrawSphere(float cx, float cy, float cz, float r) {
-            int count = 20;
             GL.Begin(PrimitiveType.QuadStrip);
+            int count = 20;
 
             float deltaTheta = 2f * (float)Math.PI / count;
             float deltaPhi = (float)Math.PI / count;
-            for (float theta = 0; theta <= 2f * (float)Math.PI; theta += deltaTheta) {
-                for (float phi = 0; phi <= (float)Math.PI; phi += deltaPhi) {
+            for (float phi = 0; phi <= (float)Math.PI; phi += deltaPhi) {
+                float dark = Mapf(phi, 0, (float)Math.PI, 1f, 0.5f);
+
+                float cr = Truncf(currentColor.X * dark, 0, 1);
+                float cg = Truncf(currentColor.Y * dark, 0, 1);
+                float cb = Truncf(currentColor.Z * dark, 0, 1);
+
+                GL.Color3(cr, cg, cb);
+
+                for (float theta = 0; theta <= 2f * (float)Math.PI; theta += deltaTheta) {
                     float z1 = cz + r * (float)Math.Sin(phi + deltaPhi) * (float)Math.Cos(theta + deltaTheta);
                     float x1 = cx + r * (float)Math.Sin(phi + deltaPhi) * (float)Math.Sin(theta + deltaTheta);
                     float y1 = cy + r * (float)Math.Cos(phi + deltaPhi);
@@ -218,15 +227,16 @@ namespace Engine {
                     float x4 = cx + r * (float)Math.Sin(phi + deltaPhi) * (float)Math.Sin(theta);
                     float y4 = cy + r * (float)Math.Cos(phi + deltaPhi);
 
+
                     GL.Vertex3(x4, y4, z4);
                     GL.Vertex3(x3, y3, z3);
                     GL.Vertex3(x1, y1, z1);
                     GL.Vertex3(x2, y2, z2);
                 }
             }
+            SetColor(currentColor);
             GL.End();
         }
-
 
         public static void SetFill(Color color) {
             GL.Color4(color);
