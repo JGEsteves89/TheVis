@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "Engine\Engine.csproj", "{5C702C3F-A3F1-48B6-8741-C115E92D22B8}"
 EndProject
@@ -26,6 +26,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chg009-CircledSign", "Chg009-CircledSign\Chg009-CircledSign.csproj", "{36100322-6200-4410-83BA-9703B21BBC56}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chg010-OneDirectionWord", "Chg010-OneDirectionWord\Chg010-OneDirectionWord.csproj", "{00471A24-D969-498C-8E14-5DA679A0C460}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chg011-FluffyFalafel", "Chg011-FluffyFalafel\Chg011-FluffyFalafel.csproj", "{8A441188-54D4-4A82-9AE9-FA7DF8EF21A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chg011-FluffyFalafelTests", "Chg011-FluffyFalafelTests\Chg011-FluffyFalafelTests.csproj", "{B959DE81-2C47-4483-AE64-E314F97319CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,8 +85,19 @@ Global
 		{00471A24-D969-498C-8E14-5DA679A0C460}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00471A24-D969-498C-8E14-5DA679A0C460}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00471A24-D969-498C-8E14-5DA679A0C460}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A441188-54D4-4A82-9AE9-FA7DF8EF21A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A441188-54D4-4A82-9AE9-FA7DF8EF21A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A441188-54D4-4A82-9AE9-FA7DF8EF21A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A441188-54D4-4A82-9AE9-FA7DF8EF21A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B959DE81-2C47-4483-AE64-E314F97319CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B959DE81-2C47-4483-AE64-E314F97319CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B959DE81-2C47-4483-AE64-E314F97319CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B959DE81-2C47-4483-AE64-E314F97319CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {02F719E5-8200-42C5-847E-3F9E5BC68D82}
 	EndGlobalSection
 EndGlobal
